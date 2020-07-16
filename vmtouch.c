@@ -446,8 +446,11 @@ void print_page_residency_chart(FILE *out, char *mincore_array, int64_t pages_in
 
   for (i=0; i<pages_in_file; i++) {
     if (is_mincore_page_resident(mincore_array[i])) {
+      printf("page %ld 1\n", i);
       curr++;
       pages_in_core++;
+    } else {
+      printf("page %ld 0\n", i);
     }
     j++;
     if (j == pages_per_char) {
